@@ -1,0 +1,13 @@
+
+## Check memberships that started AFTER the Check-in
+SELECT 
+	g.check_in_date,
+	g.membership_id,
+	m.membership_start_date,
+	m.name,
+	m.membership_start_date - g.check_in_date as date_dif
+FROM get_fit_now_check_in as g
+JOIN get_fit_now_member as m
+ON g.membership_id = m.id
+WHERE g.check_in_date = 20180115
+
